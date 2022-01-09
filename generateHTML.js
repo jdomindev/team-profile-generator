@@ -1,3 +1,8 @@
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern')
+const Manager = require('./lib/Manager')
+
+
 function generateHTML(answers) {
 return `<!DOCTYPE html>
 <html lang="en">
@@ -21,7 +26,7 @@ return `<!DOCTYPE html>
                     <div class="card" style="width: 18rem;">
                         <div class="card-header">
                             ${answers.nameFull}
-                            ${answers.getRole}
+                            ${Manager.getRole()}
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">${answers.id}</li>
@@ -36,7 +41,7 @@ return `<!DOCTYPE html>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     </body>
 </html>`;
-  }
+}
 
 function renderCards(answers) {
     switch (answers.teamChoice) {
@@ -45,7 +50,7 @@ return `<div class="col-4">
     <div class="card" style="width: 18rem;">
         <div class="card-header">
         ${answers.nameFull}
-        ${answers.getRole}
+        ${Engineer.getRole()}
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">${answers.id}</li>
@@ -59,7 +64,7 @@ return `<div class="col-4">
     <div class="card" style="width: 18rem;">
         <div class="card-header">
         ${answers.nameFull}
-        ${answers.getRole}
+        ${Intern.getRole()}
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">${answers.id}</li>

@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateHTML = require("./generateHTML")
+const generateHTML = require("./generateHTML");
+const Manager = require("./lib/Manager");
 
 const questions = [
   // {message : "Welcome to the Team Profile Generator. Please fill in details for the members of your team." },
@@ -75,6 +76,7 @@ function init() {
   inquirer
     .prompt(questions)
     .then((answers) => {
+      // const managerAdd = new Manager(answers.nameFull, answers.id, answers.email, answers.officeNum)
       // answers need to pass into classes? 
       switch (answers.teamChoice) {
         case "Engineer":
