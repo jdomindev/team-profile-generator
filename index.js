@@ -9,6 +9,10 @@ const questions = [
   { type: "list", message: "Which type of team member would you like to add?", name: "", choices:["Engineer", "Intern", "I don't want any more team members"]}
 ];
 
+function renderCards(data) {
+    // returns the cards needed?
+}
+
 function generateHTML(data) {
   return ``;
 }
