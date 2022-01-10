@@ -1,7 +1,64 @@
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern')
-const Manager = require('./lib/Manager')
+const answersArray = require("./index")
+const fs = require("fs")
+const Manager = require("./lib/Manager")
+const Employee = require("./lib/Employee")
 
+function renderCards(answers) {
+    Object.keys(answersArray).forEach(employee => {
+    if (answersArray[employee].getRole() === "Engineer") {
+        renderEngineerCard(answers)
+    } else if (answersArray[employee].getRole() === "Intern") {
+        renderInternCard(answers)
+    } else 
+       renderManagerCard(answers)
+    });
+    
+}
+
+function renderManagerCard(answers) {
+    return`<div class="col-4">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            ${answers.nameFull}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${answers.id}</li>
+            <li class="list-group-item">${answers.email}</li>
+            <li class="list-group-item">${answers.officeNum}</li>
+        </ul>
+    </div>
+</div>`
+}
+
+function renderEngineerCard(answers) {
+    return`<div class="col-4">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            ${answers.nameFull}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${answers.id}</li>
+            <li class="list-group-item">${answers.email}</li>
+            <li class="list-group-item">${answers.github}</li>
+        </ul>
+    </div>
+</div>`
+}
+
+function renderInternCard(answers) {
+    return`<div class="col-4 d-flex justify-content-center">
+    <div class="card" style="width: 18rem; background-color:rgb(53, 99, 197); color: white;">
+        <div class="card-header">
+            ${answers.nameFull}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${answers.id}</li>
+            <li class="list-group-item">${answers.email}</li>
+            <li class="list-group-item">${answers.school}</li>
+        </ul>
+    </div>
+</div>`
+}
 
 function generateHTML(answers) {
 return `<!DOCTYPE html>
@@ -14,68 +71,21 @@ return `<!DOCTYPE html>
         <title>Team Profile Generator</title>
     </head>
     <body>
-        <div class="jumbotron jumbotron-fluid">
+        <header class="jumbotron jumbotron-fluid">
             <div class="container-fluid text-white" style="background-color: #7f7f7f;">
                 <h1 class="display-4 text-center">My Team</h1>
                 <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
             </div>
-        </div>
-        <div class="container">
+        </header>
+        <main class="container">
             <div class="row">
-                <div class="col-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-header">
-                            ${answers.nameFull}
-                            ${Manager.getRole()}
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">${answers.id}</li>
-                            <li class="list-group-item">${answers.email}</li>
-                            <li class="list-group-item">${answers.officeNum}</li>
-                        </ul>
-                    </div>
-                </div>
                 ${renderCards(answers)}
             </div>   
-        </div>   
+        </main>   
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     </body>
 </html>`;
 }
 
-function renderCards(answers) {
-    switch (answers.teamChoice) {
-        case "Engineer":
-return `<div class="col-4">
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-        ${answers.nameFull}
-        ${Engineer.getRole()}
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">${answers.id}</li>
-            <li class="list-group-item">${answers.email}</li>
-            <li class="list-group-item">${answers.github}</li>
-        </ul>
-    </div>
-</div>`
-        case "Intern": 
-return `<div class="col-4">
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-        ${answers.nameFull}
-        ${Intern.getRole()}
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">${answers.id}</li>
-            <li class="list-group-item">${answers.email}</li>
-            <li class="list-group-item">${answers.school}</li>
-        </ul>
-    </div>
-</div>`
-        case "I don't want any more team members":
-        return ``;
-    }
-}
 
-module.exports = generateHTML
+module.exports = {generateHTML}
