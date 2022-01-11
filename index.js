@@ -94,6 +94,7 @@ function init() {
     .then((answers) => {
       const addManager = new Manager(answers.nameFull, answers.id, answers.email, answers.officeNum)
       answersArray.push(addManager);
+      console.log(answersArray);
       switch (answers.teamChoice) {
         case "Manager":
           init();

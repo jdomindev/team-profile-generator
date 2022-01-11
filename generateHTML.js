@@ -1,63 +1,60 @@
 const answersArray = require("./index")
-const fs = require("fs")
-const Manager = require("./lib/Manager")
-const Employee = require("./lib/Employee")
 
 function renderCards(answers) {
     Object.keys(answersArray).forEach(employee => {
     if (answersArray[employee].getRole() === "Engineer") {
-        renderEngineerCard(answers)
+        return renderEngineerCard(answers)
     } else if (answersArray[employee].getRole() === "Intern") {
-        renderInternCard(answers)
+        return renderInternCard(answers)
     } else 
-       renderManagerCard(answers)
+        return renderManagerCard(answers)
     });
     
 }
 
 function renderManagerCard(answers) {
-    return`<div class="col-4">
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-            ${answers.nameFull}
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">${answers.id}</li>
-            <li class="list-group-item">${answers.email}</li>
-            <li class="list-group-item">${answers.officeNum}</li>
-        </ul>
-    </div>
-</div>`
+    return`     <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            ${answers.nameFull}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">${answers.id}</li>
+                            <li class="list-group-item">${answers.email}</li>
+                            <li class="list-group-item">${answers.officeNum}</li>
+                        </ul>
+                    </div>
+                </div>`
 }
 
 function renderEngineerCard(answers) {
-    return`<div class="col-4">
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-            ${answers.nameFull}
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">${answers.id}</li>
-            <li class="list-group-item">${answers.email}</li>
-            <li class="list-group-item">${answers.github}</li>
-        </ul>
-    </div>
-</div>`
+    return`     <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            ${answers.nameFull}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">${answers.id}</li>
+                            <li class="list-group-item">${answers.email}</li>
+                            <li class="list-group-item">${answers.github}</li>
+                        </ul>
+                    </div>
+                </div>`
 }
 
 function renderInternCard(answers) {
-    return`<div class="col-4 d-flex justify-content-center">
-    <div class="card" style="width: 18rem; background-color:rgb(53, 99, 197); color: white;">
-        <div class="card-header">
-            ${answers.nameFull}
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">${answers.id}</li>
-            <li class="list-group-item">${answers.email}</li>
-            <li class="list-group-item">${answers.school}</li>
-        </ul>
-    </div>
-</div>`
+    return`     <div class="col-4 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; background-color:rgb(53, 99, 197); color: white;">
+                        <div class="card-header">
+                            ${answers.nameFull}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">${answers.id}</li>
+                            <li class="list-group-item">${answers.email}</li>
+                            <li class="list-group-item">${answers.school}</li>
+                        </ul>
+                    </div>
+                </div>`
 }
 
 function generateHTML(answers) {
@@ -74,7 +71,7 @@ return `<!DOCTYPE html>
         <header class="jumbotron jumbotron-fluid">
             <div class="container-fluid text-white" style="background-color: #7f7f7f;">
                 <h1 class="display-4 text-center">My Team</h1>
-                <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                <p class="lead text-center">This is your generated team.</p>
             </div>
         </header>
         <main class="container">
