@@ -52,7 +52,7 @@ function engineerPrompt() {
           internPrompt()
           break;
         case "I don't want any more team members":
-          writeToFile("./dist/team.html", generateHTML(answers));
+          writeToFile("./dist/team.html", generateHTML(answersArray));
           break;
       }
     });
@@ -76,7 +76,7 @@ function internPrompt() {
           internPrompt()
           break;
         case "I don't want any more team members":
-          writeToFile("./dist/team.html", generateHTML(answers));
+          writeToFile("./dist/team.html", generateHTML(answersArray));
           break;
       }
     });
@@ -106,7 +106,7 @@ function init() {
           internPrompt();
           break;
         case "I don't want any more team members":
-          writeToFile("./dist/team.html", generateHTML(answers));
+          writeToFile("./dist/team.html", generateHTML(answersArray));
           break;
       }
     });

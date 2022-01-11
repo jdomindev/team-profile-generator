@@ -11,7 +11,7 @@
 - [Badges](#badges)
 - [Tests](#tests)
 ## Installation
-- Install the required dependencies by running ```npm install``` and then run ```node index.js``` to begin the prompts.
+- Install the required dependencies by running ```npm install``` and then ```npm start``` to begin the prompts.
 - Required dependencies include: inquirer, and for testing: jest.
 ## Usage
 - Github Repo: https://github.com/jdomindev/team-profile-generator
