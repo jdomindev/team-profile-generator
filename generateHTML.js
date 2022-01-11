@@ -1,10 +1,8 @@
-// const answersArray = require("./index")
 const Employee = require("./lib/Employee")
 
 function renderCards(answers) {
-        console.log(`Render Cards: ${answers}`);
+        // console.log(`Render Cards: ${answers}`);
         return answers.map(employee => {
-        // for each doesn't allow returns so need to set variable that changes in each condition and then return if the variable has the value
         if (employee.getRole() === "Engineer") {
             return renderEngineerCard(employee)
         } else if (employee.getRole() === "Intern") {

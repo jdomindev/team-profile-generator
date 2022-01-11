@@ -16,12 +16,12 @@
 ## Usage
 - Github Repo: https://github.com/jdomindev/team-profile-generator
 - Screenshots:
-    ![Prompt](./images/screenshot.png)
-    ![Tests](./images/screenshot.png)
-    ![HTML](./images/screenshot.png)
+    - ![Prompt](./images/TPG-prompts.png)
+    - ![Tests](./images/TPG-tests.png)
+    - ![HTML](./images/TPG-team-page.png)
 - Video:
-    ![Demo-video](./images/demo-video.mp4)
-    ![Demo-gif](./images/demo-video.gif)
+    - [Demo-video](https://drive.google.com/file/d/19GPnora-fKZwI7Zj8LvNsllUN7tsi3pv/view?usp=sharing)
+    - ![Demo-gif](./images/TPG-demo-video.gif)
 ## Credits
 - N/A
 ## License

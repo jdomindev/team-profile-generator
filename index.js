@@ -1,7 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const {generateHTML} = require("./generateHTML");
-const Employee = require("./lib/Employee")
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager');
@@ -40,7 +39,6 @@ function engineerPrompt() {
     {
       const addEngineer = new Engineer(answers.nameFull, answers.id, answers.email, answers.github)
       answersArray.push(addEngineer)
-      console.log(answersArray);
       switch (answers.teamChoice) {
         case "Manager":
           init();
@@ -94,7 +92,6 @@ function init() {
     .then((answers) => {
       const addManager = new Manager(answers.nameFull, answers.id, answers.email, answers.officeNum)
       answersArray.push(addManager);
-      console.log(answersArray);
       switch (answers.teamChoice) {
         case "Manager":
           init();
